@@ -73,19 +73,17 @@ nav a:hover {
     z-index: 2;
 }
 
-/* --- UPDATED MARQUEE BAR --- */
+/* Marquee Bar */
 .marquee-container {
-    position: fixed; /* Fixed to the bottom of the viewport */
+    position: fixed;
     bottom: 0;
     left: 0; 
     width: 100%;
-    
-    background-color: #000000; /* The Black Bar */
-    padding: 1rem 0;           /* Vertical thickness of the bar */
-    
+    background-color: #000000;
+    padding: 1rem 0;
     white-space: nowrap;
     overflow: hidden;
-    z-index: 10; /* Ensures it sits on top of the bg image */
+    z-index: 10;
 }
 
 .marquee-content {
@@ -93,13 +91,16 @@ nav a:hover {
     padding-left: 100%;
     animation: scroll-left 25s linear infinite;
     
-    /* Text styling */
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 1.2rem;
-    color: #ffffff; /* White text */
+    color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    /* Removed text-shadow since it's on a solid black background now */
+}
+
+/* --- NEW RULE FOR THE GAP --- */
+.marquee-content span {
+    margin-right: 10vw; /* Adds a large gap between each sentence */
 }
 
 @keyframes scroll-left {
