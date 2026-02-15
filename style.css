@@ -1,6 +1,6 @@
 :root {
-    --text-color: #ffffff; /* White for the big H1 */
-    --header-color: #000000; /* Black for Logo and Link */
+    --text-color: #ffffff;
+    --header-color: #000000;
     --bg-fallback: #ffffff;
 }
 
@@ -14,29 +14,27 @@ body {
     overflow: hidden; 
 }
 
-/* --- Header Styling --- */
+/* Header */
 header {
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Ensures logo and link line up vertically */
+    align-items: center;
     padding: 2rem;
     position: fixed;
     top: 0; left: 0; width: 100%;
     z-index: 100;
 }
 
-/* Top Left Logo */
 .logo {
     font-family: "cortado", sans-serif;
     font-weight: 400;
-    color: var(--header-color); /* Black */
-    font-size: 2rem; /* "Not too big" */
-    margin-top: 5px; /* Slight optical adjustment for script font */
+    color: var(--header-color);
+    font-size: 2rem;
+    margin-top: 5px;
 }
 
-/* Top Right Link */
 nav a {
-    color: var(--header-color); /* Black */
+    color: var(--header-color);
     text-decoration: none;
     font-weight: 500;
     border-bottom: 1px solid transparent;
@@ -47,14 +45,13 @@ nav a:hover {
     border-bottom: 1px solid currentColor;
 }
 
-/* --- Hero Section --- */
+/* Hero */
 .hero {
     height: 100vh;
     width: 100%;
     background-image: url('bg.jpg');
     background-size: cover;
     background-position: center;
-    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,42 +62,44 @@ nav a:hover {
     font-family: "cortado", sans-serif;
     font-weight: 400;
     font-style: normal;
-    
-    /* Forces text to ONE line always */
     white-space: nowrap; 
-    
-    /* Responsive sizing based on width so it fits on desktop */
     font-size: 16vw; 
-    
     width: 100%;
     text-align: center;
     line-height: 1;
     margin: 0;
-    
-    color: #ffffff; /* Explicitly white */
+    color: #ffffff;
     text-shadow: 0 4px 20px rgba(0,0,0,0.3);
     z-index: 2;
 }
 
-/* --- Marquee --- */
+/* --- UPDATED MARQUEE BAR --- */
 .marquee-container {
-    position: absolute;
-    bottom: 2rem;
-    left: 0; width: 100%;
+    position: fixed; /* Fixed to the bottom of the viewport */
+    bottom: 0;
+    left: 0; 
+    width: 100%;
+    
+    background-color: #000000; /* The Black Bar */
+    padding: 1rem 0;           /* Vertical thickness of the bar */
+    
     white-space: nowrap;
     overflow: hidden;
-    z-index: 1;
+    z-index: 10; /* Ensures it sits on top of the bg image */
 }
 
 .marquee-content {
     display: inline-block;
     padding-left: 100%;
     animation: scroll-left 25s linear infinite;
+    
+    /* Text styling */
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 1.2rem;
+    color: #ffffff; /* White text */
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+    /* Removed text-shadow since it's on a solid black background now */
 }
 
 @keyframes scroll-left {
@@ -108,10 +107,7 @@ nav a:hover {
     100% { transform: translateX(-100%); }
 }
 
-/* --- Mobile Tweak --- */
-/* On phones, we might need to let it wrap or shrink further, 
-   but for now this keeps the "poster" look */
 @media (max-width: 768px) {
-    .header { padding: 1.5rem; }
+    header { padding: 1.5rem; }
     .logo { font-size: 1.5rem; }
 }
