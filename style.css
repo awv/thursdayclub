@@ -1,0 +1,81 @@
+:root {
+    --text-color: #ffffff;
+    --bg-fallback: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Body text remains clean sans-serif */
+    background-color: var(--bg-fallback);
+    color: var(--text-color);
+    padding: 0;
+    overflow: hidden; /* No scrolling allowed */
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    z-index: 100;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.5); /* Shadow for readability over image */
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* Hero */
+.hero {
+    height: 100vh;
+    width: 100%;
+    background-image: url('bg.jpg'); /* Your image */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* The Adobe Font Title */
+.hero h1 {
+    font-family: "cortado", sans-serif; /* The Adobe Font */
+    font-weight: 400;
+    font-style: normal;
+    
+    font-size: 20vw; /* Massive size */
+    width: 100%;
+    text-align: center;
+    line-height: 1.1;
+    margin: 0;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.3); /* Shadow to pop off background */
+    z-index: 2;
+}
+
+/* Marquee */
+.marquee-container {
+    position: absolute;
+    bottom: 2rem;
+    left: 0; width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.marquee-content {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll-left 25s linear infinite;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+}
+
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
